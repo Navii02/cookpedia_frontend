@@ -1,0 +1,31 @@
+<div class="container mt-4 p-5">
+
+    <div class="text-center mt-5">
+        <h2>Login</h2>
+        <h5>More than 100 plus Recipes from around the world</h5>
+    </div>
+    <div class="container  d-flex align-items-center justify-content-center">
+
+
+        <div class="p-5 mt-3 bordered shadow" >
+            <h3 class="text-warning fw-bolder text-center " routerLink=""><i
+                    class="fa-solid fa-graduation-cap me-2"></i>
+                CookPedia</h3>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="mt-4">
+                <input type="email" formControlName="email" name="email" placeholder="Email" class="form-control mt-3">
+                @if(loginForm.get('email')?.errors&& loginForm.get('email')?.touched){
+
+                <p class="text-danger">Invalid E-mail</p>}
+                <input type="password" formControlName="password" name="password" placeholder="password"
+                    class="form-control mt-3">
+                @if(loginForm.get('password')?.errors&& loginForm.get('password')?.touched){
+
+                <p class="text-danger">Invalid Password</p>}
+                <button type="submit" class="btn btn-warning mt-3 text-center form-control">Register</button>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>

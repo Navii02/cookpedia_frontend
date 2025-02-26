@@ -1,0 +1,37 @@
+<div class="container p-5 mt-5 d-flex align-items-center justify-content-center">
+    <div class="row mt-5 p-5 shadow ">
+        <div class="col-lg-6 p-5 bordered shadow">
+            <h3 class="text-warning fw-bolder text-center " routerLink=""><i
+                    class="fa-solid fa-graduation-cap me-2"></i> CookPedia</h3>
+
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="mt-4">
+                <input type="text"formControlName="username" name="username" placeholder="Username" class="form-control">
+                @if(registerForm.get('username')?.errors&& registerForm.get('username')?.touched){
+                <p class="text-danger">*Invalid Username</p>}
+                <input type="email"formControlName="email" name="email" placeholder="Email" class="form-control mt-3">
+                @if(registerForm.get('email')?.errors&& registerForm.get('email')?.touched){
+
+                <p class="text-danger">Invalid E-mail</p>}
+                <input type="password"formControlName="password" name="password" placeholder="password" class="form-control mt-3">
+                @if(registerForm.get('password')?.errors&& registerForm.get('password')?.touched){
+
+                <p class="text-danger">Invalid Password</p>}
+                <button type="submit" class="btn btn-warning mt-3 text-center form-control">Register</button>
+            </form>
+        </div>
+        <div class="col-lg-6 p-5  ">
+            <div class="ms-2">
+                <h1>Ceate New Account</h1>
+                <h3 class="mb-3">What will you get?</h3>
+                <ul>
+                    <li class="">Different Recipes</li>
+                    <li>East way to make recipes</li>
+                    <li>Save your favorite recipe</li>
+                    <li>
+                        Download your Recipes
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

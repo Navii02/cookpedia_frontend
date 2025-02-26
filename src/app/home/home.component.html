@@ -1,0 +1,102 @@
+<app-header></app-header>
+<div class="container">
+    <!-- heading -->
+    <div class="row bg-warning p-5">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4 text-light">
+            <h1 class="fw-bolder">
+                The Easiest Way <br>
+                To Make Your <br>
+                Favorite Meal
+            </h1>
+            <p>Discover 100+ recipes in your hand with the best recipe. Help you to find the easiest way to cook.</p>
+            <a routerLink="/recipes" style="background-color: orange; color: white;" class="btn mt-3 ">Explore Our
+                Recipes</a>
+        </div>
+        <div class="col-lg-6">
+            <img class="w-75 landingImg" style="margin-left: 120px;"
+                src="https://static.vecteezy.com/system/resources/previews/021/333/207/original/white-plate-with-food-isolated-on-a-transparent-background-png.png"
+                alt="No Image">
+        </div>
+    </div>
+    <!-- popular recipee -->
+    <div class="my-5 p-5">
+        <h1>Popular Recipe of the Week</h1>
+        <div class="d-flex justify-content-between">
+            <p>Our most Popular Recipes of the week</p>
+            <a routerLink="/recipes">View All</a>
+        </div>
+        <div class="row my-5">
+           
+            @for (recipes of allRecipes;track $index){
+                <div class="col-lg-4">
+                    <div class="p-3">
+                        <img class="card-img-top"
+                           [src]="recipes.image"
+                            alt="no image">
+                        <div class="card-body mt-2">
+                           {{ recipes.name}}
+                        </div>
+                    </div>
+    
+                </div>
+            }
+           
+            
+
+        </div>
+
+    </div>
+    <!-- banner -->
+    <div style="background-image: url('https://i.pinimg.com/originals/0c/b4/33/0cb43303d4268adb026b25b976b2febe.jpg'); background-repeat: no-repeat;background-size: cover; height: 400px;"
+        class="row align-items-center my-5">
+        <div class="col-lg-6"></div>
+        <div class="col-lg-6 p-5 ">
+            <div class="bg-light rounded p-4 w-75">
+                <h1 class="">50+ Recipes That Very Quick and Fast</h1>
+                <p class="text-secondary mt-3">Find the perfect food ideas to start day with the quick and easiest way
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- app -->
+    <div style="height: 400px;" class="row bg-warning my-5 align-items-center text-light rounded p-5">
+        <div class="col-lg-6">
+            <img height="300px"
+                src="https://toppng.com/uploads/thumbnail/android-app-on-google-play-11568829115kt4gig8l67.png" alt="">
+        </div>
+        <div class="col-lg-6 text-center">
+            <h1>Download App</h1>
+            <h2>Download the App from App Store or
+                Google Play for a better experience</h2>
+            <img width="200px"
+                src="https://www.freepnglogos.com/uploads/app-store-logo-png/download-on-the-app-store-logo-png-23.png"
+                alt="">
+            <img width="160px"
+                src="https://images.squarespace-cdn.com/content/v1/57b8e7618419c2785375bb85/1575326817331-WCYX64VH2BL5MBZ4B655/ke17ZwdGBToddI8pDm48kHa5HH41tqM2_ok8qxQoD7sUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcCEgGJGMTdv67klWMnoxfFS9VdeUBbhCjQtu30OQL1KUI4U7kwIgvpWTV0XeJ15k5/logo_play_store.png"
+                alt="">
+        </div>
+
+
+    </div>
+    <!-- testimonial -->
+    <div class="text-center my-5">
+        <h1>Client Testimonials</h1>
+        <marquee behavior="" direction="">
+            <div class="d-flex my-5">
+                @for(item of allFeedback;track $index){
+                    <div class="rounded border w-50 p-3 me-2 ">
+                        <h4>{{item.name}}</h4>
+                        <p style="white-space: normal; width: 100%;text-align: justify;">
+                           {{item.message}}
+                        </p>
+                    </div>
+                }
+             
+              
+            </div>
+        </marquee>
+    </div>
+</div>
+
+<app-footer></app-footer>
