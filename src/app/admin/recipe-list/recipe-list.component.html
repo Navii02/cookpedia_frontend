@@ -27,9 +27,8 @@
                         <td><img [src]="recipe.image" alt="" height="70px" width="70px"></td>
                         <td>{{recipe.cuisine}}</td>
                         <td>
-                            <button class="btn me-2"><i class="fa-solid fa-edit text-primary"></i></button>
-                            <button class="btn me-2"><i class="fa-solid fa-trash text-danger"></i></button>
-
+                            <button routerLink="/admin/recipe/{{recipe._id}}/edit" class="btn me-2"><i class="fa-solid fa-edit text-primary"></i></button>
+                            <button (click)="removeRecipe(recipe._id)" class="btn me-2"><i class="fa-solid fa-trash text-danger"></i></button>
                         </td>
                     </tr>
                 }
