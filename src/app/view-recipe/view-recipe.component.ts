@@ -51,7 +51,9 @@ getrelatedRecipe(cuisine:string){
 }
 downloadRecipe(){
   this.api.downloadRecipeApi(this.recipeId,this.recipe).subscribe((res:any)=>{
+    this.api.getchartData()
     this.generatePDF()
+   
   })
 }
 saveRecipe(){

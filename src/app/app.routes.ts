@@ -9,10 +9,11 @@ import { SaveRecipeComponent } from './save-recipe/save-recipe.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { PnfComponent } from './pnf/pnf.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
     {
-        path:'admin',loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
+        path:'admin',canActivate:[authGuard], loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
     },
     {
         path:'',component:HomeComponent,title:"Home page"
@@ -33,13 +34,13 @@ export const routes: Routes = [
         path:'register',component:RegisterComponent,title:"register Page"
     },
     {
-        path:'profile',component:ProfileComponent,title:"profile page"
+        path:'profile',canActivate:[authGuard],component:ProfileComponent,title:"profile page"
     },
     {
-        path:'save-recipe',component:SaveRecipeComponent,title:"save recipe page"
+        path:'save-recipe',canActivate:[authGuard],component:SaveRecipeComponent,title:"save recipe page"
     },
     {
-        path:'recipe/:id/view',component:ViewRecipeComponent,title:"view recipes page"
+        path:'recipe/:id/view',canActivate:[authGuard],component:ViewRecipeComponent,title:"view recipes page"
     },
     {
         path:'**',component:PnfComponent

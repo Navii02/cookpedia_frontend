@@ -29,6 +29,7 @@ login(){
       next:(res:any) => {
         sessionStorage.setItem("user",JSON.stringify(res.user));
         sessionStorage.setItem("token",res.token);
+       this.api.getchartData()
         this.loginForm.reset();
         if(res.user.role=="User"){
           this.router.navigateByUrl('/')

@@ -6,7 +6,7 @@ import { RecipeModel } from '../admin/model/recipeModel';
   providedIn: 'root'
 })
 export class ApiService {
-  service_url = 'http://localhost:4000'
+  service_url = 'https://cookpedia-backend-9ehq.onrender.com'
   constructor(private http: HttpClient) { }
   getAllRecipesApi() {
     return this.http.get(`${this.service_url}/all-recipes`)
@@ -98,5 +98,27 @@ export class ApiService {
     return this.http.delete(`${this.service_url}/recipes/${id}/remove`, this.appendToken())
   }
 
+  getchartData(){
+    this.alldownloadlistapi().subscribe((res:any) => {
+      let DownloadArrayList:any=[]
+      let output:any={}
+      res.forEach((item:any)=>{
+        let cuisine=item.recipeCuisine
+        let currentCount=item.count
+        if(output.hasOwnProperty(cuisine)){
+          output[cuisine]+=currentCount
+        }else{
+          output[cuisine]=currentCount
+        }
+
+      })
+      for(let cuisine in output){
+        DownloadArrayList.push({name:cuisine,y:output[cuisine]})
+      }
+      console.log(DownloadArrayList);
+      localStorage.setItem('chart',JSON.stringify(DownloadArrayList))
+      
+    })
+  }
 }
 
